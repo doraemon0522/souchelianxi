@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<title>大搜车首页demo</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="soucheCascading.css" />
+	<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+  <!-- <script type="text/javascript" src="jquery.mixhover.js"></script> -->
+  <script>
+
+/*$.mixhover(
+    '#content #nav-item-brand', 
+    '#brand', 
+    function(trg, drop){
+        #(drop).show();
+    },
+    function(trg, drop){
+        #(drop).hide();
+    }
+)
+*/
+
+/*$().ready(function(){
+ 
+  $("#content #nav-item-brand").hover(   hover是针对单html元素，当定义在id=nav-item-brand上，CSS中的hover就要注释掉，见印象笔记
+    function(){$("#brand").show();},
+    function(){$("#brand").hide();}
+  );
+
+});*/
+
+$().ready(function(){
+ 
+  $("#content #nav-item-brand").mousemove(   
+    function(){
+      $("#brand").show();
+    }
+  );
+
+  $("#content #nav-item-brand").mouseleave(
+    function(){$("#brand").hide();}
+  );
+  
+  $("#brand").hover(function(){
+     //获取当前选中的状态的时候让其处于显示状态
+         $('#brand').eq($('#brand').index($(this))).css({display:"block"});
+ //同时添加背景效果
+         $("#content #nav-item-brand").eq($('#brand').index($(this))).addClass("active");
+  },function(){
+ //移除当前效果，同时隐藏内容层
+             $("#content #nav-item-brand").removeClass("active");/*#nav-item-brand与active同级*/
+             $('#brand').css({display:"none"});
+              }); 
+
+
+ 
+  
+});
+ //轮播JS代码段
+ window.onload = function(){
+   var flexslider = document.getElementByClassName('flexslider');
+   var list = document.getElementByClassName('slides');
+   var nav = document.getElementByClassName('flex-control-nav');
+   var prev = document.getElementById('flex-prev');
+   var next = document.getElementById('flex-next');
+   index = 0;
+   function showButton(){
+    for (var i = 0; i < nav.length; i++) {
+      if(nav[i].className == 'flex-active'){
+        nav[i].className = '';
+        break;
+      }
+        
+    };
+    nav[index].className = 'flex-active';
+
+   }
+
+   function animate(offset) {
+      var newleft = parseInt(list.style.left) + offset;
+      list.style.left = newleft +'px';
+      if (newleft > -680) {
+        list.style.left = -3400 +'px';
+      }
+      if (newleft < -3400) {
+        list.style.left = -680 +'px';
+      }
+   }
+   next.onclick = function (){
+    if (index == 4) {  //防止index超出后，不能showButton
+      index = 0;
+    }
+    else {
+      index += 1;
+    }
+    
+    showButton();
+    animate(-680);
+   }
+   prev.onclick = function (){
+    if (index == 0) {
+      index = 4;
+    }
+    else {
+      index -= 1;
+    }
+    
+    
+    showButton();//亮起相应的按钮；
+    animate(680);
+   }
+ }
+
+
+</script>
+  </head>
+
+  <body id="index">
+  	<div id="header">
+  	  <div class="wrapper"><a href="#" class="logo"><img src="images/logo.png"></a>
+  	  	<div class="search">
+  	  	  <form action="#">
+  	  	  	<input click_type="index-keywordsearch-submit" type="text" name="keyword" placeholder="请输入关键字，如奥迪" value class="search-text">
+			<button type="submit" class="search-submit">搜索</button>
+  	  	  </form>
+  	  	  <div class="hot-keywords">
+  	  	  	<a href="#">suv</a>
+  	  	  	<a href="#">帕萨特</a>
+  	  	  	<a href="#">MINI</a>
+  	  	  	<a href="#">雅阁</a>
+  	  	  	<a href="#">迈腾</a>
+  	  	  	<a href="#">高尔夫</a>
+  	  	  	<a href="#">宝来</a>
+  	  	  	<a href="#">捷达</a>
+  	  	  	<a href="#">宝马3系</a>
+  	  	  	<a href="#">A4L</a>
+  	  	  	<a href="#">甲壳虫</a>
+  	  	  	<a href="#">福克斯</a>
+  	  	  </div>	
+  	  	</div>
+  	  	<div class="head-tel">
+  	  		<img src="images/head-tel.png">
+  	  	</div>
+  	  </div>	
+  	</div>
+
+  	<div id="nav">
+  		<div class="wrapper">
+  			<span class="main-navs">
+  				<a href="#" class="active">首页</a>
+  				<a href="#">我要买车</a>
+  				<a href="#">我要卖车</a>
+  				<a href="#">主题精选<i class="new-icons"></i></a>
+  			</span>	
+  			<span class="other-navs">
+  				<a href="#">我的买车顾问</a>
+  				<a href="#" class="head-login">登录</a>
+  			</span>
+  		</div>
+  	</div>
+
+  	<div id="content">
+  	  <div class="wrapper">
+  	  	<div class="module clearfix">
+  	  	  <div class="mod-main">
+	  	  	  	<div class="filter-nav">
+                <div id="brand">  <!-- 这个div是设置整个右向箭头指标延伸出来的部分 -->
+                      <div class="inner">
+                        <div class="brand-title">所有车辆品牌</div>
+                        <div class="brand-text-wrap">
+                         <div class="brand-text-left">
+                           <div class="bt-item">
+                             <div class="alpha">A</div>
+                             <div class="details">
+                               <a href="#">奥迪</a>
+                             </div>
+                           </div>
+                           <div class="bt-item">
+                             <div class="alpha">B</div>
+                             <div class="details">
+                               <a href="#">宝马</a>
+                               <a href="#">宝马M</a>
+                               <a href="#">保时捷</a>
+                               <a href="#">本田</a>
+                               <a href="#">标致</a>
+                               <a href="#">奥迪</a>
+                               <a href="#">奥迪</a>
+                               <a href="#">保时捷</a>
+                               <a href="#">奥迪</a>
+                               <a href="#">奥迪</a>
+                             </div>
+                           </div>
+                           <div class="bt-item">
+                             <div class="alpha">C</div>
+                             <div class="details">
+                               <a href="#">奥迪</a>
+                             </div>
+                           </div>
+                           <div class="bt-item">
+                             <div class="alpha">D</div>
+                             <div class="details">
+                               <a href="#">奥迪</a>
+                             </div>
+                           </div>
+                           <div class="bt-item">
+                             <div class="alpha">F</div>
+                             <div class="details">
+                               <a href="#">奥迪</a>
+                             </div>
+                           </div>
+                           <div class="bt-item">
+                             <div class="alpha">G</div>
+                             <div class="details">
+                               <a href="#">奥迪</a>
+                             </div>
+                           </div>
+                           <div class="bt-item">
+                             <div class="alpha">H</div>
+                             <div class="details">
+                               <a href="#">奥迪</a>
+                             </div>
+                           </div>
+                           <div class="bt-item">
+                             <div class="alpha">J</div>
+                             <div class="details">
+                               <a href="#">奥迪</a>
+                             </div>
+                           </div>
+                           <div class="bt-item">
+                             <div class="alpha">K</div>
+                             <div class="details">
+                               <a href="#">奥迪</a>
+                             </div>
+                           </div>
+                           <div class="bt-item">
+                             <div class="alpha">L</div>
+                             <div class="details">
+                               <a href="#">奥迪</a>
+                             </div>
+                           </div>
+                         </div>
+                         <div class="brand-text-right">
+                           <div class="bt-item">
+                             <div class="alpha">A</div>
+                             <div class="details">
+                               <a href="#">奥迪</a>
+                             </div>
+                           </div>
+                           <div class="bt-item">
+                             <div class="alpha">C</div>
+                             <div class="details">
+                               <a href="#">奥迪</a>
+                             </div>
+                           </div>
+                           <div class="bt-item">
+                             <div class="alpha">D</div>
+                             <div class="details">
+                               <a href="#">奥迪</a>
+                             </div>
+                           </div>
+                           <div class="bt-item">
+                             <div class="alpha">F</div>
+                             <div class="details">
+                               <a href="#">奥迪</a>
+                             </div>
+                           </div>
+                           <div class="bt-item">
+                             <div class="alpha">G</div>
+                             <div class="details">
+                               <a href="#">奥迪</a>
+                             </div>
+                           </div>
+                           <div class="bt-item">
+                             <div class="alpha">B</div>
+                             <div class="details">
+                               <a href="#">宝马</a>
+                               <a href="#">宝马M</a>
+                               <a href="#">保时捷</a>
+                               <a href="#">本田</a>
+                               <a href="#">标致</a>
+                               <a href="#">奥迪</a>
+                               <a href="#">奥迪</a>
+                               <a href="#">保时捷</a>
+                               <a href="#">奥迪</a>
+                               <a href="#">奥迪</a>
+                             </div>
+                           </div>
+                           <div class="bt-item">
+                             <div class="alpha">H</div>
+                             <div class="details">
+                               <a href="#">奥迪</a>
+                             </div>
+                           </div>
+                           <div class="bt-item">
+                             <div class="alpha">J</div>
+                             <div class="details">
+                               <a href="#">奥迪</a>
+                             </div>
+                           </div>
+                           <div class="bt-item">
+                             <div class="alpha">K</div>
+                             <div class="details">
+                               <a href="#">奥迪</a>
+                             </div>
+                           </div>
+                           <div class="bt-item">
+                             <div class="alpha">L</div>
+                             <div class="details">
+                               <a href="#">奥迪</a>
+                             </div>
+                           </div>
+
+
+                         </div>
+                        </div>
+                        <div class="hr"></div>
+                        <div class="brand-show-hd">推荐品牌</div>
+                        <ul class="brand_show feature_brand_show">
+                         <li><a href="#"><img src="images/dz.png">大众</a></li>
+                         <li><a href="#"><img src="images/dz.png">大众</a></li>
+                         <li><a href="#"><img src="images/dz.png">大众</a></li>
+                         <li><a href="#"><img src="images/dz.png">大众</a></li>
+                         <li><a href="#"><img src="images/dz.png">大众</a></li>
+                         <li><a href="#"><img src="images/dz.png">大众</a></li>
+                         <li><a href="#"><img src="images/dz.png">大众</a></li>
+                         <li><a href="#"><img src="images/dz.png">大众</a></li>
+                         <li><a href="#"><img src="images/dz.png">大众</a></li>
+                        </ul>
+                      </div>
+                </div><!-- 以上部分div是设置整个右向箭头指标延伸出来 -->
+	  	  	  	  <div class="inner">
+		  	  	  	  	<div id="nav-item-brand" class="nav-item nav-active">
+                       
+  		  	  	  	  	  <div class="nav-item-hd">
+  		  	  	  	  	  	<i class="item1"></i>
+  		  	  	  	  	  	<span>品牌</span>
+  		  	  	  	  	  </div>
+                        <div class="right-arrow"></div>     <!-- 右向箭头指标的设置 -->
+  		  	  	  	  	  <div class="nav-item-bd clearfix">
+  		  	  	  	  	  	<a href="#">大众</a>
+  		  	  	  	  	  	<a href="#">奥迪</a>
+  		  	  	  	  	  	<a href="#">宝马</a>
+  		  	  	  	  	  	<a href="#">奔驰</a>
+  		  	  	  	  	  	<a href="#">本田</a>
+  		  	  	  	  	  	<a href="#">丰田</a>
+  		  	  	  	  	  	<a href="#">日产</a>
+  		  	  	  	  	  	<a href="#">马自达</a>
+  		  	  	  	  	  	<a href="#">标致</a>
+  		  	  	  	  	  	<a href="#">现代</a>
+  		  	  	  	  	  	<a href="#">吉普</a>
+  		  	  	  	  	  	<a href="#">雪佛兰</a>
+  		  	  	  	  	  	<a href="#">别克</a>
+  		  	  	  	  	  	<a href="#">路虎</a>
+  		  	  	  	  	  	<a href="#">福特</a>
+  		  	  	  	  	  	<a href="#">沃尔沃</a>
+  		  	  	  	  	  </div>
+  		  	  	  	  	  <div class="hr">
+  		  	  	  	  	  </div>
+		  	  	  	  	</div>
+
+		  	  	  	  	<div class="nav-item">
+		  	  	  	  	  <div class="nav-item-hd">
+		  	  	  	  	  	<i class="item2"></i>
+		  	  	  	  	  	<span>价格</span>
+		  	  	  	  	  </div>
+		  	  	  	  	  <div class="nav-item-bd clearfix">
+		  	  	  	  	  	<a href="#">5万以下</a>
+		  	  	  	  	  	<a href="#">5-8万</a>
+		  	  	  	  	  	<a href="#">8-10万</a>
+		  	  	  	  	  	<a href="#">10-15万</a>
+		  	  	  	  	  	<a href="#">15-20万</a>
+		  	  	  	  	  	<a href="#">20-30万</a>
+		  	  	  	  	  	<a href="#">30-50万</a>
+		  	  	  	  	  	<a href="#">50万以上</a>
+		  	  	  	  	  </div>
+		  	  	  	  	  <div class="hr">
+		  	  	  	  	  </div>
+		  	  	  	  	</div>
+		  	  	  	  	<div class="nav-item">
+		  	  	  	  	  <div class="nav-item-hd">
+		  	  	  	  	  	<i class="item3"></i>
+		  	  	  	  	  	<span>车型</span>
+		  	  	  	  	  </div>
+		  	  	  	  	  <div class="nav-item-bd clearfix">
+		  	  	  	  	  	<a href="#">微小型车</a>
+		  	  	  	  	  	<a href="#">紧凑型车</a>
+		  	  	  	  	  	<a href="#">中型车</a>
+		  	  	  	  	  	<a href="#">中大型车</a>
+		  	  	  	  	  	<a href="#">SUV</a>
+		  	  	  	  	  	<a href="#">MPV</a>
+		  	  	  	  	  	<a href="#">跑车</a>
+		  	  	  	  	  </div>
+		  	  	  	  	  <div class="hr">
+		  	  	  	  	  </div>
+		  	  	  	  	</div>
+		  	  	  	  	<div class="nav-item">
+		  	  	  	  	  <div class="nav-item-hd">
+		  	  	  	  	  	<i class="item4"></i>
+		  	  	  	  	  	<span>车龄</span>
+		  	  	  	  	  </div>
+		  	  	  	  	  <div class="nav-item-bd clearfix">
+		  	  	  	  	  	<a href="#">1年以内</a>
+		  	  	  	  	  	<a href="#">2年以内</a>
+		  	  	  	  	  	<a href="#">3年以内</a>
+		  	  	  	  	  	<a href="#">3-5年</a>
+		  	  	  	  	  	<a href="#">5年以上</a>
+		  	  	  	  	  </div>
+		  	  	  	  	  <div class="hr">
+		  	  	  	  	  </div>
+		  	  	  	  	</div>
+		  	  	    </div>
+	  	  	    </div>
+              
+	  	  	    <!-- 轮播效果模块 -->
+	  	  	  	<div class="main-slider">    
+	  	  	  	  <div class="flexslider">
+		  	  	  	  	<div class="flex-viewport">
+		  	  	  	  		<ul class="slides" style="left: -680px;">  <!--ul的css属性先不写-->
+		  	  	  	  		  <li style="float: left; display: block;"><a href="#"><img src="images/1.jpg"></a></li>
+		  	  	  	  		  <li style="float: left; display: block;"><a href="#"><img src="images/2.jpg"></a></li>
+		  	  	  	  		  <li style="float: left; display: block;"><a href="#"><img src="images/3.jpg"></a></li>
+		  	  	  	  		  <li style="float: left; display: block;"><a href="#"><img src="images/4.jpg"></a></li>
+		  	  	  	  		  <li style="float: left; display: block;"><a href="#"><img src="images/2.jpg"></a></li>	 
+		  	  	  	  	    </ul> 	
+		  	  	  	    </div>
+                    <ol class="flex-control-nav">
+                      <li><a index="0" class="flex-active"></a></li>
+                      <li><a index="1"></a></li>
+                      <li><a index="2"></a></li>
+                      <li><a index="3"></a></li>
+                      <li><a index="4"></a></li>
+                    </ol>
+                    <a href="jacascript:;" class="flex-direction-nav" id="flex-prev">&lt</a>
+                    <a href="jacascript:;" class="flex-direction-nav" id="flex-next">&gt</a>
+		  	  	  	    <!-- ol与flex-viewport同一级 -->
+                    <!-- 左右的按钮先不写，把上面调试完再写 -->
+	  	  	  	  </div>
+	  	  	  	  <div class="performance">
+	  	  	  	 	<div class="per-item"><a href="#"><img src="images/preitem.jpg"></a></div> <!-- 此处class曾拼错pre-item致错误 -->
+	  	  	  	 	<div class="per-item"><a href="#"><img src="images/preitem.jpg"></a></div>
+	  	  	  	 	<div class="per-item"><a href="#"><img src="images/preitem.jpg"></a></div>
+	  	  	  	  </div>
+	  	  	  	</div>
+  	  	  </div>
+  	  	  <div class="mod-side">
+  	  	  	<div class="service">
+  	  	  	  <div class="inner">
+  	  	  	  	<div class="service-title">大搜车服务保障</div>
+  	  	  	  	<div class="per-1 per">
+  	  	  	  	  <a href="#">
+  	  	  	  	  	<div class="t"><span>0</span>事故车 火烧车 水浸车</div>
+  	  	  	  	  	<div class="st">356项专业检测为你把关：</div>
+  	  	  	  	  	<div class="st">如有发现，大搜车承诺全价退车！</div>
+  	  	  	  	  </a>
+  	  	  	  	</div>
+  	  	  	  	<div class="per-2 per">
+  	  	  	  	   <a href="#">
+  	  	  	  	  	<div class="t"><span>1</span>年<span>2</span>万公里质保</div>
+  	  	  	  	  	<div class="st">免费享受新车般的质保：</div>
+  	  	  	  	  	<div class="st">范围涵盖发动机汽缸、变速器等核心部件。</div>
+  	  	  	  	  </a>
+  	  	  	  	</div>
+  	  	  	  	<div class="per-3 per">
+  	  	  	  	  <a href="#">
+  	  	  	  	  	<div class="t"><span>7</span>天无理由退车</div>
+  	  	  	  	  	<div class="st">退货险给你保障：</div>
+  	  	  	  	  	<div class="st">有任何不满意，7天内回来退！</div>
+  	  	  	  	  </a>
+  	  	  	  	</div>
+  	  	  	  </div>
+  	  	  	</div>
+  	  	  </div>
+  	  	</div>
+  	  	<div class="module clearfix">
+  	  	  <div class="mod-main">
+  	  	  	<div class="qiugou">
+  	  	  	  <a id="qiugou-cur"></a>
+  	  	  	  <div class="inner">
+  	  	  	  	<!-- <div class="person-bg"></div> -->
+  	  	  	  	<div class="head">
+  	  	  	  	  <div class="head-inner">
+  	  	  	  	  	<div class="title">大搜车买车顾问，每天为您找<em>5</em>辆车</div>
+  	  	  	  	  	<div class="sub-title">提交您的购车需求，我们只找您想要的车</div>
+  	  	  	  	  </div>
+  	  	  	  	</div>
+  	  	  	  	<!-- <div class="result"></div> -->
+  	  	  	  	<div class="form">
+  	  	  	  	  <div class="form-inner">
+  	  	  	  	  	<form id="qiugou-form">
+  	  	  	  	  	  <div class="form-item clearfix" id="exception">
+  	  	  	  	  	  	<label> </label>
+  	  	  	  	  	  	<div class="input hidden warning ">请至少选择一项</div>
+  	  	  	  	  	  </div>
+  	  	  	  	  	  <div class="form-item clearfix">
+	  	  	  	  	  	  	<label>品牌</label>
+	  	  	  	  	  	  	<div class="input">
+	  	  	  	  	  	  	  <div class="sc-select sc-custom-select brand-select">
+	  	  	  	  	  	  	  	<div class="sc-select-hd">
+	  	  	  	  	  	  	  	  <div class="sc-select-content clearfix">
+	  	  	  	  	  	  	  	  	<span class="placeholder">请选择品牌，可多选</span>
+	  	  	  	  	  	  	  	  </div>
+	  	  	  	  	  	  	  	</div>
+	  	  	  	  	  	  	  </div>
+	  	  	  	  	  	  	  <input type="hidden" name="brands" class="selected_values">
+	  	  	  	  	  	  	</div>
+  	  	  	  	  	  </div>
+  	  	  	  	  	  <div class="form-item clearfix">
+  	  	  	  	  	  	<label>车系</label>
+						<div class="input">
+	  	  	  	  	  	  <div class="sc-select sc-custom-select series-select">
+	  	  	  	  	  	    <div class="sc-select-hd">
+	  	  	  	  	  	  	  <div class="sc-select-content clearfix">
+	  	  	  	  	  	  	  	<span class="placeholder">请先选择品牌</span>
+	  	  	  	  	  	  	  </div>
+	  	  	  	  	  	  	</div>
+	  	  	  	  	  	  </div>
+	  	  	  	  	  	  <input type="hidden" name="brands" class="selected_values">  
+	  	  	  	  	  	</div>
+  	  	  	  	  	  </div>
+  	  	  	  	  	  <div class="form-item clearfix">
+  	  	  	  	  	  	<label>价格</label>
+  	  	  	  	  	  	<div class="input">
+  	  	  	  	  	      <input id="price_low_select" type="text" name="minprice" class="price-select-low">至
+  	  	  	  	  	      <input id="price_high_select" type="text" name="maxprice" class="price-select-high">万元
+  	  	  	  	  	  	</div>
+  	  	  	  	  	  </div>
+  	  	  	  	  	  <div class="form-item clearfix">
+  	  	  	  	  	  	<label>上牌时间</label>
+  	  	  	  	  	  	<div class="input">
+  	  	  	  	  	  	  <div class="sc-select sc-custom-select age-select age-left" id="age_select">
+  	  	  	  	  	  	  	<div class="sc-select-hd">
+  	  	  	  	  	  	  	  <div class="sc-select-content clearfix">
+  	  	  	  	  	  	  	  	<span class="placeholder">请选择</span>
+  	  	  	  	  	  	  	  </div>
+  	  	  	  	  	  	  	</div>
+  	  	  	  	  	  	  </div>
+  	  	  	  	  	  	  <span class="age-zhi">至</span>
+  	  	  	  	  	  	  <div class="sc-select sc-custom-select age-select age-right" id="age_select_high">
+  	  	  	  	  	  	  	<div class="sc-select-content clearfix">
+  	  	  	  	  	  	  	  <span class="placeholder">请选择</span>
+  	  	  	  	  	  	  	</div>
+  	  	  	  	  	  	  </div>
+  	  	  	  	  	  	</div>
+  	  	  	  	  	  </div>
+  	  	  	  	  	  <!-- <div class="form-item clearfix"></div> -->
+  	  	  	  	  	</form>
+  	  	  	  	  </div>
+  	  	  	  	</div>
+  	  	  	  </div>
+  	  	  	</div>
+  	  	  </div>
+  	  	  <div class="mod-side">
+  	  	  	<div class="buyform">
+  	  	  	  <a href="#" class="go"></a>
+  	  	  	  <div>求购历史</div>
+  	  	  	</div>
+  	  	  </div>
+  	  	</div>
+  	  	<div class="module clearfix">
+  	  	  <div class="mod-main">
+  	  	  	<div class="timebuy">
+  	  	  		<div class="hd">
+  	  	  		  <h1 class="hd">限时优惠</h1>
+  	  	  		  <a href="#">更多 ></a>
+  	  	  		</div>
+  	  	  		<div class="timebuy-wrap">
+  	  	  		  <div class="timebuy-box">
+  	  	  		  	<div class="timebuy-list">
+  	  	  		  	  <div class="timebuy-inner clearfix">
+  	  	  		  	  	<a href="#" class="car-image"><img src="images/carpicture.jpg"></a>
+  	  	  		  	  	<div class="timebuy-price">
+  	  	  		  	  	  <div class="price-down">
+  	  	  		  	  		<i>3000</i>
+  	  	  		  	  	  </div>
+  	  	  		  	  	  <div class="car-price">
+  	  	  		  	  	  	<a href="#">2008款 奥迪A4-1.8T-CVT/MT舒适型</a>
+  	  	  		  	  	  	<div class="price-now">15.21万</div>
+  	  	  		  	  	  	<div class="price-old">15.51万</div>
+  	  	  		  	  	  </div>
+  	  	  		  	  	</div>
+  	  	  		  	  </div>
+  	  	  		  	  <div class="down-counter">
+  	  	  		  	  	
+  	  	  		  	  </div>
+  	  	  		  	</div>
+  	  	  		  	<div class="timebuy-list">
+  	  	  		  	  <div class="timebuy-inner clearfix">
+  	  	  		  	  	<a href="#" class="car-image"><img src="images/carpicture.jpg"></a>
+  	  	  		  	  	<div class="timebuy-price">
+  	  	  		  	  	  <div class="price-down">
+  	  	  		  	  		<i>3000</i>
+  	  	  		  	  	  </div>
+  	  	  		  	  	  <div class="car-price">
+  	  	  		  	  	  	<a href="#">2008款 奥迪A4-1.8T-CVT/MT舒适型</a>
+  	  	  		  	  	  	<div class="price-now">15.21万</div>
+  	  	  		  	  	  	<div class="price-old">15.51万</div>
+  	  	  		  	  	  </div>
+  	  	  		  	  	</div>
+  	  	  		  	  </div>
+  	  	  		  	  <div class="down-counter">
+  	  	  		  	  	
+  	  	  		  	  </div>
+  	  	  		  	</div>
+  	  	  		  	<div class="timebuy-list">
+  	  	  		  	  <div class="timebuy-inner clearfix">
+  	  	  		  	  	<a href="#" class="car-image"><img src="images/carpicture.jpg"></a>
+  	  	  		  	  	<div class="timebuy-price">
+  	  	  		  	  	  <div class="price-down">
+  	  	  		  	  		<i>3000</i>
+  	  	  		  	  	  </div>
+  	  	  		  	  	  <div class="car-price">
+  	  	  		  	  	  	<a href="#">2008款 奥迪A4-1.8T-CVT/MT舒适型</a>
+  	  	  		  	  	  	<div class="price-now">15.21万</div>
+  	  	  		  	  	  	<div class="price-old">15.51万</div>
+  	  	  		  	  	  </div>
+  	  	  		  	  	</div>
+  	  	  		  	  </div>
+  	  	  		  	  <div class="down-counter">
+  	  	  		  	  	
+  	  	  		  	  </div>
+  	  	  		  	</div>
+  	  	  		  	<div class="timebuy-list">
+  	  	  		  	  <div class="timebuy-inner clearfix">
+  	  	  		  	  	<a href="#" class="car-image"><img src="images/carpicture.jpg"></a>
+  	  	  		  	  	<div class="timebuy-price">
+  	  	  		  	  	  <div class="price-down">
+  	  	  		  	  		<i>3000</i>
+  	  	  		  	  	  </div>
+  	  	  		  	  	  <div class="car-price">
+  	  	  		  	  	  	<a href="#">2008款 奥迪A4-1.8T-CVT/MT舒适型</a>
+  	  	  		  	  	  	<div class="price-now">15.21万</div>
+  	  	  		  	  	  	<div class="price-old">15.51万</div>
+  	  	  		  	  	  </div>
+  	  	  		  	  	</div>
+  	  	  		  	  </div>
+  	  	  		  	  <div class="down-counter">
+  	  	  		  	  	
+  	  	  		  	  </div>
+  	  	  		  	</div>
+  	  	  		  </div>
+  	  	  		</div>
+  	  	  	</div>
+  	  	  </div>
+  	  	  <div class="mod-side">
+  	  	  	<div class="starbuy">
+  	  	  	  <div class="hd">
+  	  	  	    <h1>达人推车</h1>
+  	  	  	  </div>
+              <div class="starbuy-box">
+                  <div class="starbuy-star">
+                    <div class="star-image">
+                      <img src="images/star.jpg">
+                    </div>
+                    <div class="star">
+                      <div class="star-name">达人
+                        <i>范东东</i>
+                      </div>
+                      <div class="star-post">国内资深二手车鉴定专家</div>
+                    </div>
+                  </div>
+                  <a href="#" class="car-image">
+                    <img src="images/carimg.jpg">
+                  </a>
+                  <div class="car-float">
+                    <div class="float-box">
+                      <a class="t" href="#">
+                        奥迪A6L
+                        <i>19.06万</i>
+                      </a>
+                      <a class="d" href="#">2007-05-10上牌</a>
+                    </div>
+                  </div>
+                </div>
+  	  	  	  <a class="car-reason" href="#">
+                推荐理由：
+                <i>中国市场认可度最高的豪华公商务行政用车</i>
+              </a>
+            </div>
+  	  	  </div>	
+  	  	</div>
+  	  	<div class="module clearfix">
+  	  		<div class="hd">听听大家买二手车的理由</div>
+          <div class="mod-main">
+            <div class="whybuy">  <!--这层div是限制里面图片的位置，防止外框变形或图片显示不全  -->
+              <div class="whybuy-wrap">
+                <div class="whybuy-box clearfix">
+                  <a href="#" class="whybuy-img"><img src="images/whybuy.jpg">
+                    <div class="morecar-bg"></div>    <!-- 这一行是要干嘛？ -->
+                    <div class="morecar">
+                      <span></span>
+                      <div class="morecar-title">更多梦想进阶车型></div>
+                    </div>
+                  </a>
+                  <div class="whybuy-car">
+                    <a href="#" class="car-image"><img src="images/whybuycar.jpg"></a>
+                    <div class="car-info">
+                      <a href="#">沃尔沃-V40-2013款 沃尔沃V40-2.0T-A/M智逸版</a>
+                    </div>
+                    <div class="car-prices">22.54万
+                      <i>首次上牌:2013-09-29</i>
+                    </div>
+                    <div class="cai-tag">
+                      <i>安全至上</i>
+                      <i>内饰简洁</i>
+                    </div>
+                  </div>
+                  <div class="whybuy-car">
+                    <a href="#" class="car-image"><img src="images/whybuycar.jpg"></a>
+                    <div class="car-info">
+                      <a href="#">沃尔沃-V40-2013款 沃尔沃V40-2.0T-A/M智逸版</a>
+                    </div>
+                    <div class="car-prices">22.54万
+                      <i>首次上牌:2013-09-29</i>
+                    </div>
+                    <div class="cai-tag">
+                      <i>安全至上</i>
+                      <i>内饰简洁</i>
+                    </div>
+                  </div>
+                  <div class="whybuy-car">
+                    <a href="#" class="car-image"><img src="images/whybuycar.jpg"></a>
+                    <div class="car-info">
+                      <a href="#">沃尔沃-V40-2013款 沃尔沃V40-2.0T-A/M智逸版</a>
+                    </div>
+                    <div class="cai-prices">22.54万
+                      <i>首次上牌:2013-09-29</i>
+                    </div>
+                    <div class="car-tag">
+                      <i>安全至上</i>
+                      <i>内饰简洁</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="whybuy-box clearfix">
+                  <a href="#" class="whybuy-img"><img src="images/whybuy.jpg">
+                    <div class="morecar-bg"></div>    <!-- 这一行是要干嘛？ -->
+                    <div class="morecar">
+                      <span></span>
+                      <div class="morecar-title">更多梦想进阶车型></div>
+                    </div>
+                  </a>
+                  <div class="whybuy-car">
+                    <a href="#" class="car-image"><img src="images/whybuycar.jpg"></a>
+                    <div class="car-info">
+                      <a href="#">沃尔沃-V40-2013款 沃尔沃V40-2.0T-A/M智逸版</a>
+                    </div>
+                    <div class="car-prices">22.54万
+                      <i>首次上牌:2013-09-29</i>
+                    </div>
+                    <div class="cai-tag">
+                      <i>安全至上</i>
+                      <i>内饰简洁</i>
+                    </div>
+                  </div>
+                  <div class="whybuy-car">
+                    <a href="#" class="car-image"><img src="images/whybuycar.jpg"></a>
+                    <div class="car-info">
+                      <a href="#">沃尔沃-V40-2013款 沃尔沃V40-2.0T-A/M智逸版</a>
+                    </div>
+                    <div class="car-prices">22.54万
+                      <i>首次上牌:2013-09-29</i>
+                    </div>
+                    <div class="cai-tag">
+                      <i>安全至上</i>
+                      <i>内饰简洁</i>
+                    </div>
+                  </div>
+                  <div class="whybuy-car">
+                    <a href="#" class="car-image"><img src="images/whybuycar.jpg"></a>
+                    <div class="car-info">
+                      <a href="#">沃尔沃-V40-2013款 沃尔沃V40-2.0T-A/M智逸版</a>
+                    </div>
+                    <div class="car-prices">22.54万
+                      <i>首次上牌:2013-09-29</i>
+                    </div>
+                    <div class="cai-tag">
+                      <i>安全至上</i>
+                      <i>内饰简洁</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="whybuy-box clearfix">
+                  <a href="#" class="whybuy-img"><img src="images/whybuy.jpg">
+                    <div class="morecar-bg"></div>    <!-- 这一行是要干嘛？ -->
+                    <div class="morecar">
+                      <span></span>
+                      <div class="morecar-title">更多梦想进阶车型></div>
+                    </div>
+                  </a>
+                  <div class="whybuy-car">
+                    <a href="#" class="car-image"><img src="images/whybuycar.jpg"></a>
+                    <div class="car-info">
+                      <a href="#">沃尔沃-V40-2013款 沃尔沃V40-2.0T-A/M智逸版</a>
+                    </div>
+                    <div class="car-prices">22.54万
+                      <i>首次上牌:2013-09-29</i>
+                    </div>
+                    <div class="cai-tag">
+                      <i>安全至上</i>
+                      <i>内饰简洁</i>
+                    </div>
+                  </div>
+                  <div class="whybuy-car">
+                    <a href="#" class="car-image"><img src="images/whybuycar.jpg"></a>
+                    <div class="car-info">
+                      <a href="#">沃尔沃-V40-2013款 沃尔沃V40-2.0T-A/M智逸版</a>
+                    </div>
+                    <div class="car-prices">22.54万
+                      <i>首次上牌:2013-09-29</i>
+                    </div>
+                    <div class="cai-tag">
+                      <i>安全至上</i>
+                      <i>内饰简洁</i>
+                    </div>
+                  </div>
+                  <div class="whybuy-car">
+                    <a href="#" class="car-image"><img src="images/whybuycar.jpg"></a>
+                    <div class="car-info">
+                      <a href="#">沃尔沃-V40-2013款 沃尔沃V40-2.0T-A/M智逸版</a>
+                    </div>
+                    <div class="car-prices">22.54万
+                      <i>首次上牌:2013-09-29</i>
+                    </div>
+                    <div class="cai-tag">
+                      <i>安全至上</i>
+                      <i>内饰简洁</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mod-side">
+            <div class="hotsell">
+              <div class="hd">
+                <h1>热销排行榜</h1>
+              </div>
+              <div class="hotsell-wrap">
+                <div class="hotsell-box">
+                  <ul class="hotsell-list">
+                    <li class="kempcar">
+                      <div class="triangle"></div>
+                      <div class="car-list">
+                        <span>1</span>
+                        <a class="car-icon">
+                          <img src="">
+                        </a>
+                        <i>
+                          <a href="#">君威</a>
+                        </i>
+                        <a href="#" class="kempcar-price">12万起 ></a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+  	  	</div>
+  	  	<div class="module clearfix">
+  	  		
+  	  	</div>
+  	  	<div class="module clearfix">
+  	  		
+  	  	</div>
+  	  	<div class="module clearfix">
+  	  		
+  	  	</div>
+  	  </div>	
+  	</div>
+  </body>
+</html>

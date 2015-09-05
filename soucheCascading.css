@@ -1,0 +1,976 @@
+head,
+body {      /*为什么body与{}之间不加空格，font-family就无效？*/
+	font-family: 'Microsoft YaHei', Tahoma, Helvetica, Arial, Verdana, sans-serif;
+}
+#index {
+	color: #333;
+}
+body {
+	font-size: 12px;
+}
+a {
+	text-decoration: none;
+	color: #444;
+}
+#header .wrapper {
+	width: 1190px;
+	margin: 0 auto;
+	overflow: hidden;/*内容会被修剪，且其余内容不会显示*/
+	position: relative;
+	height: 115px;
+}
+form {
+	display: block;
+	margin-top: 0em;
+}
+#header .logo {    /*header部分，页面布局，主要是position和left*/
+	display: block;
+	position: absolute;
+	top: 40px;
+	left: 0px;
+}
+#header .search {   /*header部分，页面布局，主要是position和left*/
+	display: block;
+	position: absolute;
+	left: 300px;
+	top: 40px;
+}
+#header .search .search-text {
+	width: 490px;
+	height: 35px;
+	border: 2px solid #FC7000;  /*参数之间用空格，不能用逗号；2px,solid,#FC7000是错的*/
+	line-height: 35px;
+	font-size: 12px;
+	height: 20px;
+	padding: 7px 0;
+	padding-left: 10px;
+}
+#header .head-tel {  /*header部分，页面布局，主要是position和right*/
+	display: block;
+	position: absolute;
+	top: 40px;
+	right: 0;
+}
+#nav {
+	height: 45px;
+	line-height: 50px;  /*设置行高*/
+	border-bottom: 2px solid #FC7000;
+	background: #fff;
+}
+#nav .wrapper {
+	width: 1190px;
+	margin: 0 auto;
+}
+
+#nav .main-navs a.active {  /*a与.active之间不能有空格，a .active是错的*/
+	color: #FC7000;
+}
+#nav .main-navs a {
+	font-size: 16px;
+	color: #333;
+	margin-right: 50px;
+	font-weight: bold;
+	position: relative;
+}
+#nav .main-navs a:hover {
+	color: #FC7000;
+}
+#nav .other-navs {
+	float: right;
+}
+#nav .other-navs a {
+	font-size: 12px;
+	padding: 0 8px;
+	border-right: 1px solid #666;
+}
+#index #content .wrapper {
+	width: 1190px;
+	margin: 0 auto;
+	position: relative;
+}
+#index .module {
+	margin-top: 10px;
+}
+.clearfix {
+	display: block;
+}
+#index .module .mod-main {
+	width: 920px;
+	float: left;
+	display: inline;
+}
+#index .filter-nav {
+	border: 1px solid #e6e6e6;
+	float: left;
+	width: 228px;
+	height: 488px;
+	position: relative;
+	z-index: 10;
+	background-color: #f9f9f9;
+}
+/*以下部分是右向箭头延伸部的CSS设置*/
+#index .filter-nav #brand {
+	position: absolute;
+	/*width: 0px;*/
+	width: 690px;
+	display: none;
+	
+	left: 227px;
+	top: 0px;
+	height: 560px;
+	border: 1px solid #fc7000;
+	z-index: 10000;
+	background-color: #fff;
+	
+}
+#index .filter-nav .show {
+
+}
+/*#index .filter-nav #nav-item-brand:hover > #brand .inner{   为什么设置完还是无法显示
+	display: block;
+	
+}*/
+#index .filter-nav #brand .inner {
+	padding: 15px 25px;
+	width: 690px;
+}
+#index .filter-nav #brand .inner .brand-title {
+	font-weight: bold;
+	font-size: 14px;
+}
+#index .filter-nav #brand .inner .brand-text-wrap {
+	overflow: hidden;
+	width: 690px;
+}
+#index .filter-nav #brand .inner .brand-text-wrap .brand-text-left {
+	margin-right: 25px;
+	width: 360px;
+	float: left;
+	display: inline;
+}
+#index .filter-nav #brand .inner .brand-text-wrap .bt-item {
+	line-height: 18px;
+	margin: 15px 0;
+	overflow: hidden;
+}
+#index .filter-nav #brand .inner .brand-text-wrap .bt-item .alpha {
+	width: 10px;
+	font-size: 14px;
+	color: #fc7000;
+	vertical-align: top;
+	float: left;
+	display: inline;
+}
+#index .filter-nav #brand .inner .brand-text-wrap .bt-item .details {
+	overflow: hidden;
+	font-size: 12px;
+	display: block;
+}
+#index .filter-nav #brand .inner .brand-text-wrap .bt-item .details a {
+	float: left;
+	display: inline;
+	margin-left: 20px;
+}
+#index .filter-nav #brand .inner .hr {
+	clear: both;
+	background-color: #e6e6e6;
+	margin: 5px 0 15px 0;
+	font-size: 0px;
+	line-height: 0;
+}
+#index .filter-nav #brand .inner .brand-show-hd {
+	font-weight: bold;
+	font-size: 14px;
+	margin-bottom: 15px;
+}
+#index .filter-nav #brand .inner .brand_show {
+	width: 700px;
+	overflow: hidden;
+	height: 70px;
+}
+#index .filter-nav #brand .inner .brand_show li {
+	float: left;
+	display: inline;
+	width: 45px;
+	color: #333;
+	font-size: 14px;
+	text-align: center;
+	margin: 0 12px;
+}
+#index .filter-nav #brand .inner .brand_show li a {
+	display: block;
+}
+#index .filter-nav #brand .inner .brand_show li a img {
+	margin: 0 auto;
+	height: 42px;
+	margin-bottom: 8px;
+}
+#index .filter-nav .inner #nav-item-brand .right-arrow {
+	background-image: url(images/right-arrow.png);
+	right: 0px;
+	top: 15px;
+	position: absolute;
+	height: 20px;
+	width: 20px;
+}
+#index .filter-nav .inner #nav-item-brand:hover {  /*与hover方案版本的JS定义在同一个元素上了，所以hover方案行不通，mouseover可以*/
+	position: relative;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(252,112,0) rgb(255,255,255) rgb(252,112,0) rgb(252,112,0);
+	z-index: 10001;
+	background-color: rgb(255,255,255);
+}
+ /*新加入class=active与#nav-item-brand同级别，所以刚开始
+  #content #nav-item-brand .active写法是错误的，因此一直调试不成功*/
+#content .filter-nav .active {
+	position: relative;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(252,112,0) rgb(255,255,255) rgb(252,112,0) rgb(252,112,0);
+	z-index: 10001;
+	background-color: rgb(255,255,255);
+}
+/*以上部分是右向箭头的CSS设置*/
+
+#index .filter-nav .inner {
+	overflow: hidden;
+}
+#index .filter-nav .inner #nav-item-brand {
+	padding-top: 15px;
+	position: relative;
+
+}
+#index .filter-nav .inner .nav-item-hd {
+	font-size: 14px;
+	color: #333;
+	font-weight: bold;
+	position: relative;
+	width: 60px;
+}
+#index .filter-nav .inner .nav-item-hd i.item1 {
+	background-image: url(images/r-small.png);
+}
+#index .filter-nav .inner .nav-item-hd i {
+	display: inline-block;
+	height: 20px;
+	width: 19px;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+#index .filter-nav .inner .nav-item-hd span {
+	position: absolute;
+	left: 30px;
+	top: 0px;
+	display: block;
+	width: 60px;
+}
+#index .filter-nav .inner .nav-item-bd {
+	padding: 5px 10px 5px 30px;
+	padding-right: 0;
+}
+#index .filter-nav .inner .nav-item-bd a {
+	color: #666;
+	display: inline-block;
+	font-size: 12px;
+	margin-right: 11px;
+	margin-bottom: 10px;
+	line-height: 14px
+}
+#index .filter-nav .inner .hr {
+	border-bottom: 1px solid #e6e6e6;
+	width: 90%;
+	border-bottom-style:solid;
+	border-bottom-color: rgb(230,230,230);
+	border-bottom-width: 1px;
+	font-size: 0px;
+	line-height: 0; 
+}
+#index .filter-nav .inner .nav-item {    /*为什么设置了这一步，上面品牌那个模块也会跟着变化了，“本田”在上面变到下面，页面干净了*/
+	padding: 0px 5px 0px 10px;
+	margin-bottom: 15px;
+}
+#index .main-slider {
+	margin-left: 8px;
+	float: left;
+	overflow: hidden;
+	width: 680px;
+	position: relative;
+	z-index: 9;
+	border: 1px solid #e6e6e6;
+}
+#index .main-slider .flexslider {
+	overflow: hidden;
+	width: 100%;
+	height: 340px;
+	position: relative;
+	z-index: 10;
+}
+#index .main-slider .flex-viewport {
+	overflow: hidden;
+	position: relative;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: block;
+	position: absolute;  /*为这个JS轮播特别添加的语句*/
+}
+#index .main-slider .slides li {
+	/*width: 680px;
+	float: left;
+	display: block;*/
+	background-position: center top;
+	background-repeat: no-repeat; 
+	/*position: relative;*//*为这个JS轮播特别添加的语句*/
+}
+#index .main-slider .flexslider .flex-viewport a {
+	display: block;
+	width: 680px;
+	margin: 0 auto;
+	height: 340px;
+	/*position: absolute;*//*为这个JS轮播特别添加的语句*/
+}
+/*#index .main-slider .slides {    
+	width: 1400%;
+	-webkit-transition: 0.3s;
+	transition: 0.3s;
+	-webkit-transform: translate3d(-680px,0px,0px);
+}*/
+ol {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#index .main-slider .flexslider .flex-control-nav {
+	position: absolute;
+	bottom: 10px;
+	width: 400px;
+	text-align: center;
+	margin-left: -200px;
+	left: 50%;
+	/* transition:0.3s; */
+}
+/* #index .main-slider .flex-control-paging {
+	transition:all 0.3 ease-out;
+} */
+ol {
+	list-style: none;
+	display: block;
+	-webkit-margin-before:1em;
+	-webkit-margin-after:1em;
+	-webkit-margin-start:0px;
+	-webkit-margin-end:0px;
+	-webkit-padding-start:40px;
+}
+#index .main-slider .flexslider .flex-control-nav li {
+	z-index: 11;
+	display: inline-block;
+}
+#index .main-slider .flexslider .flex-control-nav a {
+	overflow: hidden;
+	text-indent: 1000px;
+	float: left;
+	display: inline;
+	width: 12px;
+	height: 12px;
+	text-align: center;
+	color: #fff;
+	background-color: #666;
+	margin-right: 12px;
+	cursor: pointer;
+	border-radius: 50%;
+} 
+#index .main-slider .flexslider .flex-control-nav .flex-active {
+	background-color: #e70;
+}
+
+#index .main-slider .flexslider .flex-direction-nav {
+	z-index: 11;
+}
+#flex-prev {
+	cursor: pointer;
+	display: none;
+	line-height: 39px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: 160px;
+}
+.flex-direction-nav:hover {
+	display: block;
+}
+
+#index .main-slider .performance {
+	overflow: hidden;
+	border-top: 1px solid #e6e6e6;
+	width: 681px;
+}
+#index .main-slider .performance .per-item {
+	float: left;
+	display: inline;
+	width: 226px;
+	border-right: 1px solid #e6e6e6;
+}
+#index .main-slider .performance .per-item a {
+	display: block;
+	width: 225px;
+	height: 147px;
+	cursor: pointer;
+}
+#index .module .mod-side {
+	width: 260px;
+	float: left;
+	margin-left: 10px;
+	display: inline;
+}
+#index .mod-side {
+	overflow: hidden;
+}
+#index .mod-side .service {
+	height: 490px;
+	width: 258px;
+	border: 1px solid #e6e6e6;
+	margin-bottom: 10px;
+}
+#index .mod-side .service .inner .service-title {
+	height: 50px;
+	background-color: #FC7000;
+	border-bottom: #d06e32;
+	font-size: 20px;
+	color: #fff;
+	line-height: 50px;
+	padding-left: 35px;
+}
+#index .mod-side .service .inner .per {
+	position: relative;
+	padding: 25px 0 25px 25px;
+	border-bottom: 1px dotted #cccccc;
+	height: 96px;
+}
+#index .mod-side .service .inner .t {
+	font-size: 16px;
+	line-height: 30px;
+	color: #333333;
+}
+#index .mod-side .service .inner .t span {
+	font-size: 32px;
+	color: #f25b00;
+	font-weight: bold;
+	padding-right: 3px;
+}
+#index .mod-side .service .inner .st {
+	font-size: 12px;
+	color: #666666;
+	line-height: 20px;
+}
+#index .qiugou {
+	min-height: 427px;
+	border: 1px solid #e6e6e6;
+	background: #f9f9f9;
+	position: relative;
+}
+#index .qiugou .inner {
+	padding-left: 30px;
+	padding-top: 30px;
+}
+#index .qiugou .head {
+	height: 60px;
+	overflow: hidden;
+	position: relative;
+	z-index: 2;
+	width: 540px;
+}
+#index .qiugou .title {
+	font-size: 28px;
+	color: #222;
+	line-height: 35px;
+}
+em {
+	font-style: normal;
+	font-weight: normal;
+}
+#index .qiugou .title em {
+	color: #fc7000;
+}
+#index .qiugou .sub-title {
+	font-size: 14px;
+	color: #666;
+	line-height: 30px;
+}
+form {
+	margin: 0;
+	padding: 0;
+}
+#index .qiugou .form {
+	padding-bottom: 40px;
+	position: relative;
+	margin-left: 30px;
+	z-index: 5;
+}
+#index .qiugou .form .form-item {
+	margin-top: 10px;
+}
+#index .qiugou .form #exception {
+	margin-top: 0;
+}
+#index .qiugou .form .form-item .warning {
+	color: #fc7000;
+	font-weight: bold;
+	line-height: 30px;
+	font-size: 14px;
+}
+#index .qiugou .form .form-item .input {
+	margin-left: 20px;
+	float: left;
+}
+.hidden {
+	display: none !important;
+}
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+#index .qiugou .form .form-item label {
+	color: #444;
+	font-size: 14px;
+	float: left;
+	line-height: 30px;
+	font-weight: bold;
+	width: 60px;
+	text-align: right;
+	height: 30px;
+}
+label {
+	cursor: default;
+}
+#index .qiugou .form .brand-select {
+	width: 257px;
+	height: auto;
+	display: block;
+}
+.sc-select {
+	display: inline-block;
+	border: 1px solid #d9d9d9;
+	height: 30px;
+	background: #fff;
+	line-height: 25px;
+	width: 145px;
+	position: relative;
+}
+#index .qiugou .form .brand-select .sc-select-content {
+	padding-left: 0;
+}
+.sc-select-content {        /* 调整框内灰色字体的位置 */
+	padding-left: 10px;
+	padding-top: 5px;
+	line-height: 20px;
+	color: #333;
+}
+#index .qiugou .form .brand-select .placeholder {
+	padding-left: 10px;
+}
+.sc-select-content .placeholder {
+	line-height: 20px;
+	display: block;
+	height: 25px;
+	color: #aaa;
+}
+#index .qiugou .form .series-select {
+	width: 257px;
+	height: auto;
+	display: block;
+}
+#index .qiugou .form .price-select-low,
+#index .qiugou .form .price-select-high {
+	width: 103px;
+	padding-left: 10px;
+	color: #666;
+	margin-right: 5px;
+	height: 30px;
+	margin-left: 0;
+	border: 1px solid #ddd;
+}
+#index .qiugou .form .age-select {
+	width: 113px;
+	display: inline;
+	float: left;
+}
+#index .qiugou .form .age-zhi {
+	float: left;
+	padding: 0 7px;
+	line-height: 30px;
+}
+#index .buyform {
+	background: #fff;
+	height: 427px;
+	border: 1px solid #e6e6e6;
+	overflow: hidden;
+}
+#index .buyform .go {
+	display: block;
+	width: 260px;
+	height: 338px;
+	background: url(images/wantbuy.png) no-repeat;
+	overflow: hidden;
+}
+#index .timebuy .hd {
+	height: 45px;
+}
+#index .module .hd {
+	font-size: 16px;
+	line-height: 50px;
+	color: #222;
+	font-weight: bold;
+	height: 45px;
+}
+h1 {              /* 这里不限制的话，限时优惠h1标题就会上下margin10px */
+	margin: 0;
+	padding: 0;
+}
+#index .timebuy .hd h1 {
+	float: left;
+}
+#index .timebuy .hd a {
+	float: right;
+	font-size: 12px;
+	color: #666;
+	display: block;
+	line-height: 50px;
+	height: 45px;
+}
+#index .timebuy .timebuy-wrap {
+	width: 918px;
+	overflow: hidden;
+	border: 1px solid #e6e6e6;
+}
+#index .timebuy .timebuy-wrap .timebuy-box {
+	width: 920px;    /* 此处宽度不约束，浏览器解析就会是918ox，就会出错 */
+	height: 270px;
+}
+#index .timebuy .timebuy-wrap .timebuy-box .timebuy-list {
+	width: 209px;
+	float: left;
+	padding: 10px;
+	padding-bottom: 5px;
+	border-right: 1px solid #e6e6e6;
+	height: 255px;
+}
+#index .timebuy .timebuy-wrap .timebuy-box .timebuy-list .car-image {
+	display: block;
+	height: 140px;
+	width: 210px;
+	overflow: hidden;
+}
+img {
+	border: 0;
+}
+#index .timebuy .timebuy-wrap .timebuy-box .timebuy-list .car-image img {
+	width: 210px;
+	display: inline;
+}
+#index .timebuy .timebuy-wrap .timebuy-box .timebuy-list .timebuy-price {
+	height: 76px;
+}
+#index .timebuy .timebuy-wrap .timebuy-box .timebuy-list .timebuy-price .price-down {
+	background-image: url(images/sprite.png);
+	background-position: -190px 0;
+	width: 40px;
+	height: 35px;
+	float: left;
+	padding-top: 40px;
+	margin-left: 10px;
+	background-color: #fff;
+}
+#index .timebuy .timebuy-wrap .timebuy-box .timebuy-list .timebuy-price .price-down i {
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+	line-height: 20px;
+	font-family: 'Microsoft YaHei', Tahoma, Verdana;
+	font-style: normal;
+	display: block;
+}
+#index .timebuy .timebuy-wrap .timebuy-box .timebuy-list .timebuy-price .car-price {
+	width: 140px;
+	height: 40px;
+	padding-left: 10px;
+	float: left;
+	padding-top: 5px;
+}
+#index .timebuy .timebuy-wrap .timebuy-box .timebuy-list .timebuy-price .car-price a {
+	margin-bottom: 5px;
+	height: 40px;
+	overflow: hidden;
+	display: block;
+	font-size: 12px;
+	color: #444;
+	line-height: 20px;
+	font-family: 'Microsoft YaHei', Tahoma, Verdana;
+}
+#index .timebuy .timebuy-wrap .timebuy-box .timebuy-list .timebuy-price .car-price .price-now {
+	font-size: 20px;
+	color: db2400;
+	float: left;
+}
+#index .timebuy .timebuy-wrap .timebuy-box .timebuy-list .timebuy-price .car-price .price-old {
+	font-size: 13px;
+	color: #999;
+	line-height: 30px;
+	text-decoration: line-through;
+	float: left;
+	margin-left: 8px;
+}
+#index .timebuy .timebuy-wrap .timebuy-box .timebuy-list .down-counter {
+	margin-top: 10px;
+	border-top: 1px solid #e6e6e6;
+	font-size: 12px;
+	color: #333;
+	height: 20px;
+	line-height: 25px;
+	text-align: center;
+	padding-top: 5px;
+}
+#index .starbuy {
+	height: 315px;
+	border: 1px solid #e6e6e6;
+}
+#index .starbuy .hd {
+	height: 45px;
+}
+#index .starbuy .hd h1 {
+	padding: 0 0 0 20px;
+}
+h1 {
+	font-size: 100%;
+	font-weight: normal;
+}
+#index .starbuy .starbuy-box {
+	position: relative;
+	width: 210px;
+	padding: 0 25px 0 25px;  /*padding: 0 25px;一样可以*/
+}
+#index .starbuy .starbuy-box .starbuy-star {
+	height: 52px;
+	margin: 0px auto;
+	margin-bottom: 0px;
+}
+#index .starbuy .starbuy-box .starbuy-star .star-image {
+	width: 50px;
+	height: 50px;
+	float: left;
+	overflow: hidden;
+}
+#index .starbuy .starbuy-box .starbuy-star .star-image img {       /*长宽要约束，不然会被不是该尺寸的图片撑开*/
+	width: 50px;
+	height: 50px;
+}
+#index .starbuy .starbuy-box .starbuy-star .star {
+	width: 132px;
+	height: 62px;
+	float: left;
+	padding-left: 6px;
+}
+#index .starbuy .starbuy-box .starbuy-star .star .star-name {
+	font-size: 12px;
+	color: #444;
+	line-height: 20px;
+	padding-top: 5px;
+}
+#index .starbuy .starbuy-box .starbuy-star .star .star-name i {
+	font-size: 12px;
+	color: #111;
+	font-weight: bold;
+	padding-left: 5px;
+	font-style: normal;
+}
+#index .starbuy .starbuy-box .starbuy-star .star .star-post {
+	font-size: 12px;
+	color: #bb8d6f;
+	line-height: 20px;
+}
+#index .starbuy .starbuy-box .car-image {
+	width: 210px;
+	height: 141px;
+	margin-bottom: 10px;
+	display: block;
+	overflow: hidden;
+}
+#index .starbuy .starbuy-box .car-float {
+	height: 50px;
+	width: 210px;
+	background-color: #000;
+	opacity: 0.6;
+	position: absolute;
+	bottom: 0px;
+	left: 25px;
+}
+#index .starbuy .starbuy-box .car-float .float-box {
+	font-size: 12px;
+	padding: 10px;
+	color: #fff;
+}
+#index .starbuy .starbuy-box .t {
+	color: #fff;
+}
+#index .starbuy .starbuy-box .t i {
+	display: block;
+	float: right;
+	font-style: normal;
+}
+#index .starbuy .starbuy-box .d {
+	line-height: 20px;
+	color: #fff;
+}
+#index .starbuy .starbuy-box a {
+	display: block;                /*功能：使上牌日期于品牌名上下行分开，可试试去掉这个CSS调试*/
+}
+#index .starbuy .car-reason {
+	font-size: 12px;
+	font-weight: bold;
+	float: left;
+	font-style: normal;
+	color: #444;
+	padding: 0 25px;
+}
+#index .starbuy .car-reason i {
+	line-height: 20px;
+	font-style: normal;
+	font-weight: normal;
+	color: #666;
+}
+#index .module .hd {
+	font-size: 16px;
+	line-height: 50px;
+	color: #222;
+	font-weight: bold;
+	height: 45px;
+}
+#index .whybuy {
+	width: 918px;
+	overflow: hidden;
+	border: 1px solid #e6e6e6;
+	border-bottom: none;
+	border-right: none;
+}
+#index .whybuy .whybuy-wrap {
+	width: 920px;             /*这句如果不要，结果怎样？*/
+}
+#index .whybuy .whybuy-wrap .whybuy-box {
+	border-bottom: 1px solid #e6e6e6;
+}
+#index .whybuy .whybuy-wrap .whybuy-box .whybuy-img {
+	width: 228px;
+	height: 290px;
+	background-color: #fff;
+	float: left;
+	position: relative;
+	overflow: hidden;
+}
+#index .whybuy .whybuy-wrap .whybuy-box .whybuy-img img {
+	width: 228px;
+	height: 290px;
+}
+#index .whybuy .whybuy-wrap .whybuy-box .morecar-bg {
+	width: 100%;
+	height: 40px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background-color: #000;
+	opacity: 0.6;
+}
+#index .whybuy .whybuy-wrap .whybuy-box .morecar {
+	height: 40px;
+	width: 100%;
+	left: 0;
+	position: absolute;
+	cursor: pointer;
+	line-height: 40px;
+	bottom: 0;
+}
+#index .whybuy .whybuy-wrap .whybuy-box .morecar span {
+	height: 20px;
+	width: 20px;
+	background: url(images/arrow.png);
+	display: block;
+	float: right;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+#index .whybuy .whybuy-wrap .whybuy-box .morecar .morecar-title {
+	font-size: 14px;
+	color: #fff;
+	line-height: 38px;
+	margin-right: 10px;
+	float: right;
+}
+#index .whybuy .whybuy-wrap .whybuy-box .whybuy-car {
+	width: 219px;
+	height: 280px;
+	float: left;
+	display: inline;
+	padding-left: 10px;
+	overflow: hidden;
+	padding-top: 10px;
+	border-right: 1px solid #e6e6e6;
+}
+#index .whybuy .whybuy-wrap .whybuy-box .whybuy-car .car-image {
+	display: block;
+	height: 140px;
+	width: 210px;
+	overflow: hidden;
+}
+#index .whybuy .whybuy-wrap .whybuy-box .whybuy-car .car-image img {
+	width: 210px;
+}
+#index .whybuy .whybuy-wrap .whybuy-box .whybuy-car .car-info {
+	height: 44px;
+	overflow: hidden;
+	padding-top: 15px;
+	line-height: 20px;
+}
+#index .whybuy .whybuy-wrap .whybuy-box .whybuy-car .car-info a {
+	font-size: 14px;
+}
+#index .whybuy .whybuy-wrap .whybuy-box .whybuy-car .car-prices {
+	height: 30px;
+	overflow: hidden;
+	font-size: 18px;
+	color: #db2400;
+	padding-top: 10px;
+}
+#index .whybuy .whybuy-wrap .whybuy-box .whybuy-car .car-prices i {
+	display: block;
+	font-size: 12px;
+	color: #999;
+	font-style: normal;
+	float: right;
+	line-height: 30px;
+	padding-right: 10px;
+}
+#index .whybuy .whybuy-wrap .whybuy-box .whybuy-car .cai-tag {
+	height: 20px;
+	padding-top: 8px;
+	color: #999;
+	margin-left: -10px;
+}
+#index .whybuy .whybuy-wrap .whybuy-box .whybuy-car .cai-tag i {
+	display: block;
+	font-size: 12px;
+	float: left;
+	font-style: normal;
+	line-height: 18px;
+	border-right: 1px solid #ddd;
+	padding: 0 10px;
+}
+#index .whybuy .whybuy-wrap .whybuy-box .whybuy-car .cai-tag i:last-child {
+	border-right: none;
+}
